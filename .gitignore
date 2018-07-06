@@ -1,5 +1,12 @@
-.terraform
-*.info
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
 *.tfstate
-*.backup
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+# .sh
 *.sh
