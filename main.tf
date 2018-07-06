@@ -15,10 +15,14 @@ resource "openstack_networking_subnet_v2" "subnet_1" {
   }
 }
 
+data "openstack_networking_network_v2" "public_network" {
+  name = "public1"
+}
+
 resource "openstack_networking_router_v2" "router_1" {
   name                = "78034_router"
   admin_state_up      = true
-  external_network_id = "29a79bd0-8740-45f1-861b-93562b57dedb"
+  external_network_id = "${data.openstack_networking_network_v2.public_network.id}"
 }
 
 resource "openstack_networking_router_interface_v2" "router_interface_1" {
