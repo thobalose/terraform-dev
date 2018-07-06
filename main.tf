@@ -6,12 +6,12 @@ resource "openstack_networking_network_v2" "network_1" {
 resource "openstack_networking_subnet_v2" "subnet_1" {
   name       = "78034_subnet"
   network_id = "${openstack_networking_network_v2.network_1.id}"
-  cidr       = "10.0.1.0/24"
+  cidr       = "10.0.0.0/8"
   ip_version = 4
 
   allocation_pools = {
-    start = "10.0.1.10"
-    end   = "10.0.1.20"
+    start = "10.0.0.10"
+    end   = "10.0.0.20"
   }
 }
 
@@ -31,10 +31,10 @@ resource "openstack_networking_router_interface_v2" "router_interface_1" {
 }
 
 resource "openstack_compute_instance_v2" "basic" {
-  name            = "78034_basic_instance"
+  name            = "78034_vm"
   image_name      = "ubuntu-16.04_working"
   flavor_name     = "m1.small"
-  key_pair        = "OSVM"
+  key_pair        = "oskey"
   security_groups = ["default"]
 
   network {
