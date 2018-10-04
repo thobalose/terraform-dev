@@ -10,13 +10,17 @@ resource "openstack_networking_subnet_v2" "subnet_1" {
   ip_version = 4
 
   allocation_pools = {
-    start = "10.0.0.10"
-    end   = "10.0.0.20"
+    start = "10.0.0.50"
+    end   = "10.0.0.100"
   }
 }
 
 data "openstack_networking_network_v2" "public_network" {
   name = "public1"
+}
+
+data "openstack_networking_network_v2" "ceph_network" {
+  name = "ceph-net"
 }
 
 resource "openstack_networking_router_v2" "router_1" {
@@ -33,12 +37,16 @@ resource "openstack_networking_router_interface_v2" "router_interface_1" {
 resource "openstack_compute_instance_v2" "basic" {
   name            = "78034_vm"
   image_name      = "ubuntu-16.04_working"
-  flavor_name     = "m1.small"
+  flavor_name     = "m1.large"
   key_pair        = "oskey"
   security_groups = ["default"]
 
   network {
     name = "${openstack_networking_network_v2.network_1.name}"
+  }
+
+  network {
+    name = "${data.openstack_networking_network_v2.ceph_network.name}"
   }
 }
 
