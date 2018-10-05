@@ -1,6 +1,8 @@
 # terraform-dev
 
-Terraform on OpenStack
+This is a very basic use of [Terraform](https://www.terraform.io) to spin up an [Openstack](https://www.openstack.org/) Instance.
+
+_See [`variables.tf`](./variables.tf) for used defaults._
 
 ## Usage
 
