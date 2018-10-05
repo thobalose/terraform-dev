@@ -4,6 +4,12 @@ Terraform on OpenStack
 
 ## Usage
 
+Assumptions:
+
+- Enabled SSH and ICMP access to instances
+- Added and imported Keypairs
+- Have floating IPs
+
 Download and install [Terraform](https://www.terraform.io/downloads.html):
 
 ```sh
