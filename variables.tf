@@ -1,9 +1,9 @@
-variable "public_network" {
-  default = "public1"
+variable "ssh_key_file" {
+  default = "~/.ssh/vms"
 }
 
-variable "ceph_network" {
-  default = "ceph-net"
+variable "ssh_user" {
+  default = "ubuntu"
 }
 
 variable "image_name" {
@@ -16,4 +16,12 @@ variable "flavor_name" {
 
 variable "key_pair" {
   default = "oskey"
+}
+
+variable "public_network" {
+  default = "public1"
+}
+
+variable "ceph_network" {
+  default = "ceph-net"
 }
