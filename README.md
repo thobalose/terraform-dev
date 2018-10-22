@@ -6,12 +6,6 @@ _See [`variables.tf`](./variables.tf) for used defaults._
 
 ## Usage
 
-Assumptions:
-
-- Enabled SSH and ICMP access to instances
-- Added and imported Keypairs
-- Have floating IPs
-
 Download and install [Terraform](https://www.terraform.io/downloads.html):
 
 ```sh
@@ -54,6 +48,14 @@ Apply changes:
 
 ```sh
 $ terraform apply
+...
+```
+
+To get a list of usable floating IP pools install [openstack-cli clients](https://docs.openstack.org/newton/user-guide/common/cli-install-openstack-command-line-clients.html) and run this command:
+
+```sh
+$ openstack network list --external
+...
 ```
 
 :rocket::boom:

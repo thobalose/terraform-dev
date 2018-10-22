@@ -25,3 +25,7 @@ variable "public_network" {
 variable "ceph_network" {
   default = "ceph-net"
 }
+
+variable "dns_nameservers" {
+  default = ["192.168.2.75", "192.168.2.8", "8.8.8.8", "8.8.4.4"]
+}
